@@ -1,0 +1,39 @@
+🚀 CHROME EXTENSION INSTALLATION GUIDE
+==========================================
+
+📍 EXTENSION LOCATION:
+/home/klassy/Downloads/auto-scroll-chrome-extension
+
+📋 STEP-BY-STEP INSTRUCTIONS:
+
+1. Open Google Chrome
+2. Go to: chrome://extensions/
+3. Turn ON "Developer mode" (toggle in top-right corner)
+4. Click "Load unpacked" button
+5. In the file browser, navigate to:
+   /home/klassy/Downloads/auto-scroll-chrome-extension
+6. Select this folder and click "Select Folder"
+
+✅ VERIFICATION:
+- You should see "Auto Scroll for Reels & Shorts" in your extensions list
+- The extension icon should appear in your Chrome toolbar
+- No error messages should appear
+
+🔧 IF YOU GET ERRORS:
+- Make sure you selected the folder that contains manifest.json
+- Check that all files are present (run ./validate.sh)
+- Try refreshing the Chrome extensions page
+
+📁 REQUIRED FILES (all present):
+✅ manifest.json
+✅ content.js  
+✅ background.js
+✅ popup.html
+✅ popup.js
+✅ style.css
+✅ icon.png
+
+🎯 EXACT PATH TO SELECT:
+/home/klassy/Downloads/auto-scroll-chrome-extension
+
+Don't select the parent folder or any subfolders!

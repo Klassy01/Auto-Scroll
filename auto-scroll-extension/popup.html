@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Scroll Settings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icon.png" alt="Auto Scroll" class="icon">
+      <h1>Auto Scroll</h1>
+      <p class="subtitle">Reels & Shorts</p>
+    </div>
+
+    <div class="settings">
+      <div class="setting-item">
+        <label class="toggle-container">
+          <span class="setting-label">Enable Auto Scroll</span>
+          <input type="checkbox" id="enableToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <label for="delaySlider" class="setting-label">
+          Scroll Delay: <span id="delayValue">500ms</span>
+        </label>
+        <input type="range" id="delaySlider" min="100" max="2000" value="500" step="100">
+        <div class="slider-labels">
+          <span>Fast</span>
+          <span>Slow</span>
+        </div>
+      </div>
+
+      <div class="setting-item">
+        <label for="speedSelect" class="setting-label">Scroll Speed</label>
+        <select id="speedSelect" class="select-input">
+          <option value="slow">Slow & Smooth</option>
+          <option value="medium" selected>Medium</option>
+          <option value="fast">Fast</option>
+        </select>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-button active" data-tab="general">General</button>
+        <button class="tab-button" data-tab="instagram">Instagram</button>
+        <button class="tab-button" data-tab="youtube">YouTube</button>
+        <button class="tab-button" data-tab="stats">Stats</button>
+      </div>
+
+      <div class="tab-content" id="general-tab">
+        <div class="setting-item">
+          <label class="toggle-container">
+            <span class="setting-label">Keyboard Shortcuts</span>
+            <input type="checkbox" id="keyboardToggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+          <p class="setting-help">Ctrl+Shift+A to toggle, Space to pause</p>
+        </div>
+
+        <div class="setting-item">
+          <label class="toggle-container">
+            <span class="setting-label">Sound Detection</span>
+            <input type="checkbox" id="soundToggle">
+            <span class="toggle-slider"></span>
+          </label>
+          <p class="setting-help">Experimental: Detect video end by audio</p>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" id="instagram-tab">
+        <div class="setting-item">
+          <label class="toggle-container">
+            <span class="setting-label">Enable for Instagram</span>
+            <input type="checkbox" id="instagramEnabled" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label for="instagramDelay" class="setting-label">
+            Instagram Delay: <span id="instagramDelayValue">500ms</span>
+          </label>
+          <input type="range" id="instagramDelay" min="100" max="3000" value="500" step="100">
+        </div>
+
+        <div class="setting-item">
+          <label for="instagramScrollType" class="setting-label">Scroll Type</label>
+          <select id="instagramScrollType" class="select-input">
+            <option value="smooth" selected>Smooth</option>
+            <option value="instant">Instant</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" id="youtube-tab">
+        <div class="setting-item">
+          <label class="toggle-container">
+            <span class="setting-label">Enable for YouTube</span>
+            <input type="checkbox" id="youtubeEnabled" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label for="youtubeDelay" class="setting-label">
+            YouTube Delay: <span id="youtubeDelayValue">500ms</span>
+          </label>
+          <input type="range" id="youtubeDelay" min="100" max="3000" value="500" step="100">
+        </div>
+
+        <div class="setting-item">
+          <label for="youtubeScrollType" class="setting-label">Scroll Type</label>
+          <select id="youtubeScrollType" class="select-input">
+            <option value="smooth" selected>Smooth</option>
+            <option value="instant">Instant</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" id="stats-tab">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number" id="totalScrolls">0</span>
+            <span class="stat-label">Total Auto-Scrolls</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="sessionScrolls">0</span>
+            <span class="stat-label">This Session</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="instagramScrolls">0</span>
+            <span class="stat-label">Instagram Reels</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="youtubeScrolls">0</span>
+            <span class="stat-label">YouTube Shorts</span>
+          </div>
+        </div>
+        <button id="resetStats" class="reset-button">Reset Statistics</button>
+      </div>
+
+      <div class="status">
+        <div class="status-item">
+          <span class="status-label">Current Page:</span>
+          <span id="currentPlatform" class="status-value">Detecting...</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Status:</span>
+          <span id="extensionStatus" class="status-value active">Active</span>
+        </div>
+      </div>
+
+      <div class="info">
+        <h3>Quick Actions:</h3>
+        <div class="quick-actions">
+          <button id="pauseButton" class="action-button">⏸️ Pause</button>
+          <button id="testScrollButton" class="action-button">🔄 Test Scroll</button>
+        </div>
+        <div class="keyboard-shortcuts">
+          <p><strong>Keyboard Shortcuts:</strong></p>
+          <p>• <kbd>Ctrl+Shift+A</kbd> - Toggle on/off</p>
+          <p>• <kbd>Space</kbd> - Pause/Resume (on video pages)</p>
+        </div>
+      </div>
+
+      <div class="support">
+        <p>📍 Supported platforms:</p>
+        <div class="platform-badges">
+          <span class="badge instagram">Instagram</span>
+          <span class="badge youtube">YouTube</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

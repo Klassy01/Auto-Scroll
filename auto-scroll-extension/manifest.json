@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Scroll for Reels & Shorts",
+  "version": "1.0",
+  "description": "Automatically scrolls to the next Instagram Reel or YouTube Short when the current one finishes playing",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://www.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*",
+        "https://www.youtube.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "toggle-auto-scroll": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "Toggle auto-scroll on/off"
+    }
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Auto Scroll Settings",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
